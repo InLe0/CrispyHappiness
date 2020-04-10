@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="CrispyHappiness.View.ConversationOverview">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="bigStackus">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
@@ -19,9 +19,8 @@
 
                     <ImageButton x:Name="Setting" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Source="settingscogwheelpngicon651309.png"/>
             </Grid>
-            <ScrollView>
-                <Grid x:Name="conversationGrid">
-                </Grid>
+            <ScrollView x:Name="bigScroller">
+                <StackLayout x:Name="scrollyStack"></StackLayout>
             </ScrollView>
 
 

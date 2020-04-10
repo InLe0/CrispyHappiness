@@ -25,12 +25,34 @@ namespace CrispyHappiness.View
             foreach (int ID in IdList)
             {
                 button = new Button();
-                conversationGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-                conversationGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
-                Grid.SetRow(button, i);
-                Grid.SetColumn(button, 0);
+                Grid dynGrid = new Grid();
+                dynGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                dynGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
+
+                StackLayout dynStackImg = new StackLayout();
+                ImageButton imgButt = new ImageButton();
+                imgButt.Source = "settingscogwheelpngicon651309.png";
+                dynStackImg.Children.Add(imgButt);
+
+
+                Grid.SetRow(dynStackImg, 0);
+                Grid.SetColumn(dynStackImg, 0);
+                dynGrid.Children.Add(dynStackImg);
+
+                StackLayout dynStackTxt = new StackLayout();
+                Label labelName = new Label();
+                labelName.Text = "name";
+                Label labelLastSext = new Label();
+                labelLastSext.Text = "none";
+                dynStackTxt.Children.Add(labelName);
+                dynStackTxt.Children.Add(labelLastSext);
+
+                Grid.SetRow(dynStackTxt, 0);
+                Grid.SetColumn(dynStackTxt, 1);
+                dynGrid.Children.Add(dynStackTxt);
+
+                scrollyStack.Children.Add(dynGrid);
                 i++;
-                conversationGrid.Children.Add(button);
             }
         }
     }
