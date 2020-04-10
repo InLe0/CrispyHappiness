@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using CrispyHappiness.View;
 namespace CrispyHappiness
 {
     public partial class App : Application
@@ -10,7 +10,7 @@ namespace CrispyHappiness
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+          MainPage = new ConversationOverview();
         }
 
         protected override void OnStart()

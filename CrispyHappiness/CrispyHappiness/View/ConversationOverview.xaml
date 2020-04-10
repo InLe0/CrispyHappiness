@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CrispyHappiness.View.ConversationOverview">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="searchBar" Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill" VerticalOptions="Start"/>
+
+                    <ImageButton x:Name="Setting" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Source="settingscogwheelpngicon651309.png"/>
+            </Grid>
+            <ScrollView>
+                <Grid x:Name="conversationGrid">
+                </Grid>
+            </ScrollView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
