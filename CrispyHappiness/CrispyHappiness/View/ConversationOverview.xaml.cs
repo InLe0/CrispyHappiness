@@ -17,7 +17,7 @@ namespace CrispyHappiness.View
         public ConversationOverview()
         {
             InitializeComponent();
-            for (int k = 0; k < 5; k++)
+            for (int k = 0; k < 30; k++)
             {
                 IdList.Add(k);
             }
