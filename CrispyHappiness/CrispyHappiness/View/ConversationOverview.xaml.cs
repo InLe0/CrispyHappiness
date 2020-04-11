@@ -18,20 +18,17 @@ namespace CrispyHappiness.View
         List<int> IdList = new List<int>();
         FakeWebService totallyLegitimateWebService = new FakeWebService();
         List<Conversation> conversations = new List<Conversation>();
+
         public ConversationOverview()
         {
             InitializeComponent();
 
-            Conversation[] kon = new Conversation[3];
-            TaskCaller();
-            searchBar.Text = "Bamboozle";
-
-            for (int k = 0; k < 30; k++)
+            var conversations2 = Task.Run(async () => await TaskRetriever()).Result;
+            foreach (var item in conversations2)
             {
-                IdList.Add(k);
+                conversations.Add(item);
             }
-            int i = 0;
-            searchBar.Text += conversations.Count().ToString();
+
             foreach (var item in conversations)
             {
                 button = new Button();
@@ -43,7 +40,7 @@ namespace CrispyHappiness.View
                 StackLayout dynStackImg = new StackLayout();
                 ImageButton imgButt = new ImageButton();
                 imgButt.Clicked += ImgButt_Clicked;
-                imgButt.Source = "settingscogwheelpngicon651309.png";
+                imgButt.Source = item.Avatar;
                 dynStackImg.Children.Add(imgButt);
 
 
@@ -55,7 +52,7 @@ namespace CrispyHappiness.View
                 Label labelName = new Label();
                 labelName.Text = item.Username;
                 Label labelLastSext = new Label();
-                labelLastSext.Text = "none";
+                labelLastSext.Text = item.LastMessage;
                 dynStackTxt.Children.Add(labelName);
                 dynStackTxt.Children.Add(labelLastSext);
 
@@ -64,23 +61,12 @@ namespace CrispyHappiness.View
                 dynGrid.Children.Add(dynStackTxt);
 
                 scrollyStack.Children.Add(dynGrid);
-                i++;
             }
         }
 
-        public void TaskCaller()
-        {
-           var conversations2 = Task.Run(async () => await TaskRetriever()).Result;
-            foreach (var item in conversations2)
-            {
-                conversations.Add(item);
-                searchBar.Text += conversations.Count().ToString();
-            }
-        }
         public async Task<Conversation[]> TaskRetriever()
         {
             var conversations2 = await totallyLegitimateWebService.GetConversations(1);
-            searchBar.Text = conversations2.Count().ToString();
             return conversations2;
         }
 

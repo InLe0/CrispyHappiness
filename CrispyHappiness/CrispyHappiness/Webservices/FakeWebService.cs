@@ -56,9 +56,9 @@ namespace CrispyHappiness.Webservices
             await Sleep();
             return new[]
             {
-                new Conversation { Id = 1, UserId = 2, Username = "Obama", LastMessage = "Hi", },
-                new Conversation { Id = 2, UserId = 3, Username = "Bush", LastMessage = "Pretty well, still coding C#", },
-                new Conversation { Id = 3, UserId = 4, Username = "Clinton", LastMessage = "It's great!",  },
+                new Conversation { Id = 1, UserId = 2, Username = "Obama", Avatar = "settingscogwheelpngicon651309.png", LastMessage = "Hi", },
+                new Conversation { Id = 2, UserId = 3, Username = "Bush", Avatar = "bb5962c0fda3373cbf16940486fab0dd.png", LastMessage = "Pretty well, still coding C#", },
+                new Conversation { Id = 3, UserId = 4, Username = "Clinton", Avatar = "selfkeylogo.png", LastMessage = "It's great!",  },
             };
         }
 

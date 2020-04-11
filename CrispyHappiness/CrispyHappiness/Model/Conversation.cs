@@ -36,6 +36,7 @@ namespace CrispyHappiness.Model
 
         public string LastMessage { get; set; }
 
+        public string Avatar { get; set; }
         public string MyId { get; set; }
     }
 }
