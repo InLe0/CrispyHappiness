@@ -85,7 +85,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\selfkeylogo.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrispyHappiness\CrispyHappiness.csproj">
       <Project>{29CF347F-38C2-4EBB-B468-B8EC8AB7586A}</Project>

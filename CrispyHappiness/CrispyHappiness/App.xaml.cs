@@ -10,9 +10,8 @@ namespace CrispyHappiness
         {
             InitializeComponent();
 
-          MainPage = new ConversationOverview();
+            MainPage = new NavigationPage(new Login());
         }
-
         protected override void OnStart()
         {
         }

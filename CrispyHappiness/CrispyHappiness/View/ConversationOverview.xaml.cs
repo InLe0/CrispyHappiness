@@ -26,11 +26,13 @@ namespace CrispyHappiness.View
             {
                 button = new Button();
                 Grid dynGrid = new Grid();
-                dynGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                dynGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(80) });
+                dynGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(80) });
                 dynGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
                 StackLayout dynStackImg = new StackLayout();
                 ImageButton imgButt = new ImageButton();
+                imgButt.Clicked += ImgButt_Clicked;
                 imgButt.Source = "settingscogwheelpngicon651309.png";
                 dynStackImg.Children.Add(imgButt);
 
@@ -54,6 +56,16 @@ namespace CrispyHappiness.View
                 scrollyStack.Children.Add(dynGrid);
                 i++;
             }
+        }
+
+        private void ImgButt_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ConversationDetail());
+        }
+
+        private void Setting_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Settings());
         }
     }
 }
