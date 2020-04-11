@@ -18,10 +18,14 @@ namespace CrispyHappiness.View
         FakeWebService totallyLegitimateWebService = new FakeWebService();
         List<Message> messages = new List<Message>();
 
-        public ConversationDetail()
+        public ConversationDetail(int UserId)
         {
+            
             InitializeComponent();
-
+            var conversations2 = Task.Run(async () => await UserNameRetriever()).Result;
+            Conversation conv = new Conversation();
+            conv = conversations2[UserId-2];
+            usernameLabel.Text = conv.Username;
             RetrieveChat();
             PopulateChat();
         }
@@ -54,7 +58,12 @@ namespace CrispyHappiness.View
                 chatStack.Children.Add(label);
             }
         }
+        public async Task<Conversation[]> UserNameRetriever()
+        {
+            var conversations2 = await totallyLegitimateWebService.GetConversations(1);
 
+            return conversations2;
+        }
         public async Task<ObservableCollection<Message>> TaskRetriever()
         {
             var Messages2 = await totallyLegitimateWebService.GetMessages(1);

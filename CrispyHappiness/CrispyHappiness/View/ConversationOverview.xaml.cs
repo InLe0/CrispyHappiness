@@ -16,7 +16,7 @@ namespace CrispyHappiness.View
     {
         FakeWebService totallyLegitimateWebService = new FakeWebService();
         List<Conversation> conversations = new List<Conversation>();
-
+        int userID; 
         public ConversationOverview()
         {
             InitializeComponent();
@@ -45,9 +45,10 @@ namespace CrispyHappiness.View
                 dynGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
                 StackLayout dynStackImg = new StackLayout();
-                ImageButton imgButt = new ImageButton();
+                ImageButts imgButt = new ImageButts();
                 imgButt.Clicked += ImgButt_Clicked;
                 imgButt.Source = item.Avatar;
+                imgButt.userID = item.UserId;
                 dynStackImg.Children.Add(imgButt);
 
 
@@ -78,7 +79,8 @@ namespace CrispyHappiness.View
 
         private void ImgButt_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ConversationDetail());
+            ImageButts imageButts = (ImageButts)sender; 
+            Navigation.PushAsync(new ConversationDetail(imageButts.userID));
         }
 
         private void Setting_Clicked(object sender, EventArgs e)
