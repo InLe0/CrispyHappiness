@@ -14,8 +14,6 @@ namespace CrispyHappiness.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ConversationOverview : ContentPage
     {
-        Button button;
-        List<int> IdList = new List<int>();
         FakeWebService totallyLegitimateWebService = new FakeWebService();
         List<Conversation> conversations = new List<Conversation>();
 
@@ -23,12 +21,21 @@ namespace CrispyHappiness.View
         {
             InitializeComponent();
 
+            RetrieveConversations();
+            PopulateGrid();
+        }
+
+        public void RetrieveConversations()
+        {
             var conversations2 = Task.Run(async () => await TaskRetriever()).Result;
             foreach (var item in conversations2)
             {
                 conversations.Add(item);
             }
-
+        }
+        public void PopulateGrid()
+        {
+            Button button;
             foreach (var item in conversations)
             {
                 button = new Button();
@@ -63,7 +70,6 @@ namespace CrispyHappiness.View
                 scrollyStack.Children.Add(dynGrid);
             }
         }
-
         public async Task<Conversation[]> TaskRetriever()
         {
             var conversations2 = await totallyLegitimateWebService.GetConversations(1);

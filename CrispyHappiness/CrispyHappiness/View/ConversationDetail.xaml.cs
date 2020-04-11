@@ -16,7 +16,15 @@ namespace CrispyHappiness.View
         {
             InitializeComponent();
         }
+        public void RetrieveChats()
+        {
+        
+        }
 
+        public void PopulateChat()
+        { 
+        
+        }
         private void userDetail_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new UserDetail());
