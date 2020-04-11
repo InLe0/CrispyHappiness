@@ -16,11 +16,12 @@ namespace CrispyHappiness.View
     {
         FakeWebService totallyLegitimateWebService = new FakeWebService();
         List<Conversation> conversations = new List<Conversation>();
-        int userID; 
-        public ConversationOverview()
+        User loggedUser;
+        public ConversationOverview(User user)
         {
             InitializeComponent();
 
+            loggedUser = user;
             RetrieveConversations();
             PopulateGrid();
         }
@@ -73,14 +74,14 @@ namespace CrispyHappiness.View
         }
         public async Task<Conversation[]> TaskRetriever()
         {
-            var conversations2 = await totallyLegitimateWebService.GetConversations(1);
+            var conversations2 = await totallyLegitimateWebService.GetConversations(loggedUser.Id);
             return conversations2;
         }
 
         private void ImgButt_Clicked(object sender, EventArgs e)
         {
             ImageButts imageButts = (ImageButts)sender; 
-            Navigation.PushAsync(new ConversationDetail(imageButts.userID));
+            Navigation.PushAsync(new ConversationDetail(loggedUser, imageButts.userID));
         }
 
         private void Setting_Clicked(object sender, EventArgs e)

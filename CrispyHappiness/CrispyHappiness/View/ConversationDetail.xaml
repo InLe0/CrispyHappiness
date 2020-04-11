@@ -18,7 +18,7 @@
                 <Label x:Name="usernameLabel" Text="Definitely-not-Markiplier" Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill" VerticalOptions="StartAndExpand"/>
                 <ImageButton x:Name="userDetail" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Source="settingscogwheelpngicon651309.png " Clicked="userDetail_Clicked"/>
             </Grid>
-            <ScrollView>
+            <ScrollView x:Name="bigScroller">
                 <StackLayout x:Name="chatStack">
                 </StackLayout>
             </ScrollView>
