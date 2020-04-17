@@ -1,7 +1,12 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿
 using CrispyHappiness.View;
+
+using System;
+
+using Xamarin.Forms;
+
+
+
 namespace CrispyHappiness
 {
     public partial class App : Application
@@ -10,11 +15,12 @@ namespace CrispyHappiness
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new LoginView());
+            
+            
         }
-        protected override void OnStart()
-        {
-        }
+       
+      
 
         protected override void OnSleep()
         {

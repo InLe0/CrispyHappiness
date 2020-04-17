@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CrispyHappiness.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Settings : ContentPage
+    public partial class SettingsView : ContentPage
     {
-        public Settings()
+        public SettingsView()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace CrispyHappiness.View
 
         private void logout_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Login());
+            Navigation.PushAsync(new LoginView());
         }
     }
 }

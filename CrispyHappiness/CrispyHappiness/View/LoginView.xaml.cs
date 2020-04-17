@@ -12,11 +12,11 @@ using Xamarin.Forms.Xaml;
 namespace CrispyHappiness.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Login : ContentPage
+    public partial class LoginView : ContentPage
     {
         FakeWebService totallyLegitimateWebService = new FakeWebService();
         User loggedUser;
-        public Login()
+        public LoginView()
         {
             InitializeComponent();
 
@@ -25,7 +25,9 @@ namespace CrispyHappiness.View
         private void loginButton_Clicked(object sender, EventArgs e)
         {
             loggedUser = Task.Run(async () => await LoginHandler()).Result;
-            Navigation.PushAsync(new ConversationOverview(loggedUser));
+
+
+            Navigation.PushAsync(new ConversationOverviewView(loggedUser));
         }
 
         public async Task<User> LoginHandler()

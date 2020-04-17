@@ -8,20 +8,21 @@ using CrispyHappiness.Model;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CrispyHappiness.ViewModel;
 
 namespace CrispyHappiness.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ConversationOverview : ContentPage
+    public partial class ConversationOverviewView : ContentPage
     {
         FakeWebService totallyLegitimateWebService = new FakeWebService();
         List<Conversation> conversations = new List<Conversation>();
         User loggedUser;
-        public ConversationOverview(User user)
+        public ConversationOverviewView(User user)
         {
             InitializeComponent();
-
             loggedUser = user;
+            
             RetrieveConversations();
             PopulateGrid();
         }
@@ -80,13 +81,14 @@ namespace CrispyHappiness.View
 
         private void ImgButt_Clicked(object sender, EventArgs e)
         {
-            ImageButts imageButts = (ImageButts)sender; 
-            Navigation.PushAsync(new ConversationDetail(loggedUser, imageButts.userID));
+            ImageButts imageButts = (ImageButts)sender;
+            Navigation.PushAsync(new ConversationDetailView(loggedUser, imageButts.userID));
+
         }
 
         private void Setting_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Settings());
+            Navigation.PushAsync(new SettingsView());
         }
     }
 }

@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CrispyHappiness.View.ConversationOverview">
+             x:Class="CrispyHappiness.View.ConversationOverviewView">
     <ContentPage.Content>
         <StackLayout x:Name="bigStackus">
             <Grid>
@@ -16,8 +16,8 @@
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
                 <Entry x:Name="searchBar" Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill" VerticalOptions="Start"/>
-               
-                    <ImageButton x:Name="Setting" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Source="settingscogwheelpngicon651309.png" Clicked="Setting_Clicked"/>
+
+                <ImageButton x:Name="Setting" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Source="settingscogwheelpngicon651309.png" Clicked="Setting_Clicked"/>
             </Grid>
             <ScrollView x:Name="bigScroller">
                 <StackLayout x:Name="scrollyStack"></StackLayout>

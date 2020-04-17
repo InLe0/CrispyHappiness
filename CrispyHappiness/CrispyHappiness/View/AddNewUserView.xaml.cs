@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CrispyHappiness.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddNewUser : ContentPage
+    public partial class AddNewUserView : ContentPage
     {
-        public AddNewUser()
+        public AddNewUserView()
         {
             InitializeComponent();
         }
