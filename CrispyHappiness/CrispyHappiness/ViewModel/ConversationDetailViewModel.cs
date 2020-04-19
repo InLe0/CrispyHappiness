@@ -18,7 +18,7 @@ namespace CrispyHappiness.ViewModel
         User loggedUser;
 
         //hard coded value for testing 
-        string userName = "obama";
+        public string userName = "obama";
         //need this to be public and some other shit could probably have the original string be public as well haven't tried that 
         //make sure that in the .xaml the Text="{Binding}" has the same variable name as the public string 
         public string Username

@@ -7,9 +7,9 @@
              x:Class="CrispyHappiness.View.LoginView">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="userName"/>
-            <Entry x:Name="password"/>
-            <ImageButton x:Name="loginButton" Clicked="loginButton_Clicked" HeightRequest="75" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Center" Source="selfkeylogo.png"/>
+            <Entry x:Name="userName" Text="{Binding Username}"/>
+            <Entry x:Name="password" Text="{Binding Password}"/>
+            <ImageButton x:Name="loginButton" HeightRequest="75" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Center" Source="selfkeylogo.png" Command="{Binding GetInHereCommand}"/>
         </StackLayout>
     
             
