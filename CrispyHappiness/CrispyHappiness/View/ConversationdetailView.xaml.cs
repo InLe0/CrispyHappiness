@@ -22,13 +22,12 @@ namespace CrispyHappiness.View
         User loggedUser;
         Label scrollTo;
       
-        public ConversationDetailView(User user, int userID)
+        public ConversationDetailView()
         {
             InitializeComponent();
-            loggedUser = user;
-            selectedID = userID;
+          
             //This what makes the binding work very important to have
-            BindingContext = new ConversationDetailViewModel();
+            BindingContext = new ConversationDetailViewModel(Navigation);
 
 
 
@@ -62,9 +61,6 @@ namespace CrispyHappiness.View
             //if (lastChild != null)
             //{ bigScroller.ScrollToAsync(lastChild, ScrollToPosition.MakeVisible, true); }
         }
-        private void userDetail_Clicked(object sender, EventArgs e)
-        {
-            //avigation.PushAsync(new UserDetailView());
-        }
+        
     }
 }

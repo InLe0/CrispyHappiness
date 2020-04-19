@@ -18,7 +18,7 @@ namespace CrispyHappiness.ViewModel
         User loggedUser;
 
         //hard coded value for testing 
-        public string userName = "obama";
+        public string userName;
         //need this to be public and some other shit could probably have the original string be public as well haven't tried that 
         //make sure that in the .xaml the Text="{Binding}" has the same variable name as the public string 
         public string Username
@@ -26,7 +26,15 @@ namespace CrispyHappiness.ViewModel
             get { return userName; }
         }
 
+        public ConversationDetailViewModel(INavigation navigation)
+        {
 
+        }
+        public ConversationDetailViewModel(User user, int userID)
+        {
+            loggedUser = user;
+            selectedID = userID;
+        }
         public void RetrieveChat()
         {
             
@@ -38,7 +46,7 @@ namespace CrispyHappiness.ViewModel
             }
 
 
-            //UserNameLabel = conv.Find(item => item.UserId == selectedID).Username;
+            userName = conv.Find(item => item.UserId == selectedID).Username;
 
             var Messages2 = Task.Run(async () => await TaskRetriever()).Result;
             foreach (var item in Messages2)

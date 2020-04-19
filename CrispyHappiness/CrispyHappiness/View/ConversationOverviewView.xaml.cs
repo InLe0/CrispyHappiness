@@ -15,28 +15,21 @@ namespace CrispyHappiness.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ConversationOverviewView : ContentPage
     {
-        FakeWebService totallyLegitimateWebService = new FakeWebService();
         List<Conversation> conversations = new List<Conversation>();
-        User loggedUser;
+
         public ConversationOverviewView(User user)
         {
             InitializeComponent();
-            loggedUser = user;
-            
-            RetrieveConversations();
-            PopulateGrid();
+            BindingContext = new ConversationOverviewViewModel(Navigation);
         }
 
-        public void RetrieveConversations()
-        {
-            var conversations2 = Task.Run(async () => await TaskRetriever()).Result;
-            foreach (var item in conversations2)
-            {
-                conversations.Add(item);
-            }
-        }
+
         public void PopulateGrid()
         {
+            
+            Binding binding = new Binding("MyDataProperty");
+            
+            
             Button button;
             foreach (var item in conversations)
             {
@@ -48,11 +41,12 @@ namespace CrispyHappiness.View
 
                 StackLayout dynStackImg = new StackLayout();
                 ImageButts imgButt = new ImageButts();
-                imgButt.Clicked += ImgButt_Clicked;
+                //imgButt.Clicked += ImgButt_Clicked;
                 imgButt.Source = item.Avatar;
                 imgButt.userID = item.UserId;
                 dynStackImg.Children.Add(imgButt);
-
+                
+                
 
                 Grid.SetRow(dynStackImg, 0);
                 Grid.SetColumn(dynStackImg, 0);
@@ -60,8 +54,10 @@ namespace CrispyHappiness.View
 
                 StackLayout dynStackTxt = new StackLayout();
                 Label labelName = new Label();
+                labelName.SetBinding(Label.TextProperty, binding);
                 labelName.Text = item.Username;
                 Label labelLastSext = new Label();
+
                 labelLastSext.Text = item.LastMessage;
                 dynStackTxt.Children.Add(labelName);
                 dynStackTxt.Children.Add(labelLastSext);
@@ -73,22 +69,5 @@ namespace CrispyHappiness.View
                 scrollyStack.Children.Add(dynGrid);
             }
         }
-        public async Task<Conversation[]> TaskRetriever()
-        {
-            var conversations2 = await totallyLegitimateWebService.GetConversations(loggedUser.Id);
-            return conversations2;
-        }
-
-        private void ImgButt_Clicked(object sender, EventArgs e)
-        {
-            ImageButts imageButts = (ImageButts)sender;
-            Navigation.PushAsync(new ConversationDetailView(loggedUser, imageButts.userID));
-
-        }
-
-        private void Setting_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new SettingsView());
-        }
-    }
+    }      
 }

@@ -19,14 +19,16 @@ namespace CrispyHappiness.ViewModel
         string password;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public INavigation Navigation { get; set; }
         void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        public LoginViewModel()
+        public LoginViewModel(INavigation navigation)
         {
+            this.Navigation = navigation;
             GetInHereCommand = new Command(GetInHere);
+            
         }
         public Command GetInHereCommand { get; }
         async void GetInHere()

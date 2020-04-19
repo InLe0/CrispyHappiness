@@ -17,7 +17,7 @@
                 </Grid.ColumnDefinitions>
                 <Entry x:Name="searchBar" Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill" VerticalOptions="Start"/>
 
-                <ImageButton x:Name="Setting" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Source="settingscogwheelpngicon651309.png" Clicked="Setting_Clicked"/>
+                <ImageButton x:Name="Setting" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" Source="settingscogwheelpngicon651309.png" />
             </Grid>
             <ScrollView x:Name="bigScroller">
                 <StackLayout x:Name="scrollyStack"></StackLayout>
